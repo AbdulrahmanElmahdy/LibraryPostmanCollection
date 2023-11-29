@@ -46,7 +46,7 @@
 							"    }\r",
 							"    catch(err)\r",
 							"    {\r",
-							"        if(jsonData.msg.includes(\"Exists\"))\r",
+							"        if(jsonData.Msg.includes(\"Exists\"))\r",
 							"        {\r",
 							"            cleanupScript();\r",
 							"        }\r",
