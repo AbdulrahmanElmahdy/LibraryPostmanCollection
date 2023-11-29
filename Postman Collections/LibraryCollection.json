@@ -24,6 +24,7 @@
 							"    // bookID\r",
 							"    const book_id = generateBookID();\r",
 							"    pm.environment.set(\"bookID\",book_id);\r",
+							"    pm.collectionVariables.set(\"flag\",true);\r",
 							"    postman.setNextRequest(\"DeleteBook\");\r",
 							"}\r",
 							"\r",
@@ -286,6 +287,11 @@
 							"{\r",
 							"    pm.response.to.have.status(200);\r",
 							"    pm.response.to.have.jsonSchema(schema);\r",
+							"    if(pm.collectionVariables.get(\"flag\"))\r",
+							"    {\r",
+							"        postman.setNextRequest(\"AddBook\");\r",
+							"    }\r",
+							"    \r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -317,7 +323,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "d6c857e6-b18d-4c0a-8b75-e84e3a2f22bd",
+				"id": "932b1c34-e84a-4e25-b246-6f3d3e5f49a6",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -327,7 +333,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "d49805ed-84ee-4523-b7d0-242185f2f691",
+				"id": "3f864629-91ab-4b32-bb84-bfcb9af3a703",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -349,6 +355,11 @@
 		{
 			"key": "bookName",
 			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "flag",
+			"value": "false",
 			"type": "string"
 		}
 	]
